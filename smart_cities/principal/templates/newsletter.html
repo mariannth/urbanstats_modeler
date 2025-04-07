@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter | Ciudades Inteligentes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">UrbanStats Modeler</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="flex justify-center space-x-4">
+                <li><a href="{% url 'inicio' %}" class="hover:underline">Inicio</a></li>
+                <li><a href="{% url 'quienes_somos' %}" class="hover:underline">Quiénes Somos</a></li>
+                <li><a href="{% url 'noticias' %}" class="hover:underline">Noticias</a></li>
+                <li><a href="{% url 'contacto' %}" class="hover:underline">Contáctanos</a></li>
+                <li><a href="{% url 'newsletter' %}" class="hover:underline">Newsletter</a></li>
+                <li><a href="{% url 'informacion' %}" class="hover:underline">Información</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header con degradado -->
+    <header class="header">
+        <div class="container text-center text-white">
+            <h1>Suscríbete a Nuestro Newsletter</h1>
+            <p>Recibe las últimas noticias sobre ciudades inteligentes y sostenibilidad</p>
+        </div>
+    </header>
+
+    <!-- Main con contenido específico -->
+    <main class="container my-5">
+        <section>
+            <h2>¡No te pierdas ninguna novedad!</h2>
+            <form class="contact-form">
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" placeholder="Introduce tu correo electrónico" required>
+                <button type="submit">Suscribirse</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer text-center text-white py-3">
+        <p>&copy; 2025 Ciudades Inteligentes. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

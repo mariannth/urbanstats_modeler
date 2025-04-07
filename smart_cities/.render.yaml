@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: smart-cities-app
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn urbanstats_modeler.wsgi:application
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: smart-cities-app.onrender.com
+      - key: postgresql://smartcitiesdb_user:3E0xU1ANOWW8Sp1No2UkUFW59VFIViUI@dpg-cvq2n63e5dus739sipt0-a/smartcitiesdb
+        fromDatabase:
+          name: smartcitiesdb
+          property: connectionString
