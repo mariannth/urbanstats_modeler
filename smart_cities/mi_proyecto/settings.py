@@ -9,13 +9,8 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-import os
-import dj_database_url
-from dotenv import load_dotenv
+
 from pathlib import Path
-
-load_dotenv()
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,17 +20,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-68%(%8ti(6!z7axyi(77ejjuhbby$n(3u4^3^08qjvbc)0xf64'
-
-SECRET_KEY = os.getenv("SECRET_KEY", "insecure-secret")
+SECRET_KEY = 'django-insecure-68%(%8ti(6!z7axyi(77ejjuhbby$n(3u4^3^08qjvbc)0xf64'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
+DEBUG = True
 
-DEBUG = os.getenv("DEBUG", "False") == "True"
+ALLOWED_HOSTS = []
 
-#ALLOWED_HOSTS = []
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
 
 # Application definition
 
@@ -89,16 +80,14 @@ LOGOUT_REDIRECT_URL = '/login'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+
 
 
 # Password validation
